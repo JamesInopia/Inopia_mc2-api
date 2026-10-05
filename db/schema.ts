@@ -17,9 +17,9 @@ export const profiles = pgTable("profiles", {
 ]).enableRLS();
 
 export const entries = pgTable("entries", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  customerId: text("customer_id").notNull().references(() => customers.id, { onDelete: "cascade" }),
-  kind: text("kind").notNull(),
-  amount: numeric("amount", { precision: 10, scale: 2, mode: "number" }).notNull(),
-  createdAt: timestamp("created_at").notNull().defaultNow(),
+    id: uuid("id").primaryKey().defaultRandom(),
+    customerId: text("customer_id").notNull().references(() => customers.id, { onDelete: "cascade" }),
+    kind: text("kind").notNull(),
+    amount: numeric("amount", { precision: 10, scale: 2, mode: "number" }).notNull(),
+    createdAt: timestamp("created_at").notNull().defaultNow(),
 }).enableRLS();
